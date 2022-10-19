@@ -17,13 +17,15 @@ const carritoSchema = buildSchema(`
         id: ID!,
         productos: [Producto]
     }
-    type Query {
-        getCarrito(id: ID!): Carrito,
-        getProductos(): [Producto],
+    type Query{
+        getCarrito(id: ID!): Producto,
+        getCarritos(id: ID!): [Producto]
     }
-    type Mutation {
-        postCarrito(datos: CarritoInput): Carrito,
+    type Mutation{
+        postCarrito(datos: ProductoInput): Producto,
+        updateCarrito(id: ID!, datos: ProductoInput): Producto,
+        deleteCarrito(id: ID!): Producto
     }
 `);
 
-export default productoSchema;
+export default carritoSchema;

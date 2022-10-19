@@ -72,6 +72,8 @@ import {
   editProductos,
   deleteProductos,
 } from "./controllers/producto.controller.js";
+import carritoSchema from "./graphql/carrito.schema.js";
+import { getCarrito, getCarritos, postCarrito, editCarrito, deleteCarrito } from "./controllers/carrito.controller.js";
 
 //CLUSTER
 
@@ -90,6 +92,20 @@ if (modo == "CLUSTER" && cluster.isPrimary) {
   //app.use("/graphql/", rutas);
 
   //GRAPHQL
+  // app.use(
+  //   "/graphql",
+  //   graphqlHTTP({
+  //     schema: carritoSchema,
+  //     rootValue: {
+  //       getCarrito: getCarrito,
+  //       getCarritos: getCarritos,
+  //       postCarrito: postCarrito,
+  //       updateCarrito: editCarrito,
+  //       deleteCarrito: deleteCarrito,
+  //     },
+  //     graphiql: true,
+  //   })
+  // );
 
   app.use(
     "/graphql",

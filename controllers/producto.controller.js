@@ -30,7 +30,7 @@ const postProductos = async ({ datos }) => {
 const editProductos = async (id, { datos }) => {
   const producto = { datos };
   if (Admin) {
-    if (!productoMap[id]) throw new Error("Persona no existe");
+    if (!productoMap[id]) throw new Error("Producto no existe");
     const productoActualizado = new Persona(id, producto);
     productoMap[id] = productoActualizado;
     return productoActualizado;
@@ -41,7 +41,7 @@ const editProductos = async (id, { datos }) => {
 
 const deleteProductos = async (id) => {
   if (Admin) {
-    if (!productoMap[id]) throw new Error("Persona no existe");
+    if (!productoMap[id]) throw new Error("Producto no existe");
     const productoBorrado = productoMap[id];
     delete productoMap[id];
     return productoBorrado;
